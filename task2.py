@@ -10,10 +10,9 @@ tf.logging.set_verbosity(tf.logging.INFO)
 mnist = input_data.read_data_sets("data/", one_hot=True)
 
 learning_rate = 0.001
-training_epochs = 5000
+training_iterations = 5000
 batch_size = 100
-display_epoch = 1 # TODO change to 250
-logs_path = 'tensorflow_logs/'
+display_iterations = 250
 
 raw_data = tf.placeholder(tf.float32, [None, 784])
 input_layer = tf.reshape(raw_data, [-1, 28, 28, 1])
@@ -58,25 +57,17 @@ with tf.name_scope('SGD'):
 
 init = tf.global_variables_initializer()
 
-# tf.summary.scalar("loss", cost)
-# tf.summary.scalar("accuracy", accuracy)
-# merged_summary_op = tf.summary.merge_all()
-
 with tf.Session() as sess:
     sess.run(init)
-    # summary_writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())
-
-    for epoch in range(training_epochs):
-        avg_cost = 0.
-        total_batch = int(mnist.train.num_examples / batch_size)
-        for i in range(total_batch):
-            batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            _, c = sess.run([optimizer, cost],
-                            feed_dict={raw_data: batch_xs, output_layer: batch_ys})
-            # summary_writer.add_summary(summary, epoch * total_batch + i)
-            avg_cost += c / total_batch
-        if (epoch + 1) % display_epoch == 0:
-            tf.logging.info("Epoch: %s\tcost=%s", (epoch + 1), avg_cost)
+    avg_cost = 0.
+    for iteration in range(training_iterations):
+        batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+        _, c = sess.run([optimizer, cost],
+                        feed_dict={raw_data: batch_xs, output_layer: batch_ys})
+        avg_cost += c / display_iterations
+        if (iteration + 1) % display_iterations == 0:
+            tf.logging.info("Iteration: %s\tcost=%s", (iteration + 1), avg_cost)
+            avg_cost = 0.
 
     tf.logging.info("Accuracy: %s", accuracy.eval({raw_data: mnist.test.images, output_layer: mnist.test.labels}))
 
