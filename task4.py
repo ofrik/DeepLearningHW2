@@ -20,6 +20,7 @@ def main(args):
 
     input_layer = tf.placeholder(tf.float32, [None, 28, 28, 1])
     output_layer = tf.placeholder(tf.float32, [None, 10])
+    training = tf.placeholder(tf.bool)
 
     conv1 = tf.layers.conv2d(
         inputs=input_layer,
@@ -28,7 +29,7 @@ def main(args):
         padding="same",
         activation=tf.nn.relu)
 
-    norm1 = tf.nn.local_response_normalization( conv1 )
+    norm1 = tf.nn.local_response_normalization(conv1)
 
     pool1 = tf.layers.max_pooling2d(inputs=norm1, pool_size=[2, 2], strides=2)
 
@@ -38,17 +39,16 @@ def main(args):
         kernel_size=[5, 5],
         padding="same",
         activation=tf.nn.relu)
-    
-    norm2 = tf.nn.local_response_normalization( conv2 )
-    
+
+    norm2 = tf.nn.local_response_normalization(conv2)
+
     pool2 = tf.layers.max_pooling2d(inputs=norm2, pool_size=[2, 2], strides=2)
 
     pool2_flat = tf.reshape(pool2, [-1, 7 * 7 * 64])
 
     dense1 = tf.layers.dense(inputs=pool2_flat, units=1024, activation=tf.nn.relu)
 
-    dropout = tf.layers.dropout(inputs=dense1, rate=0.4, ###### Need to change the training = True
-                                training=True == tf.estimator.ModeKeys.TRAIN)
+    dropout = tf.layers.dropout(inputs=dense1, rate=0.4, training=training)
 
     logits = tf.layers.dense(inputs=dropout, units=10, activation=tf.nn.relu)
 
@@ -81,9 +81,9 @@ def main(args):
             end_index = int(((iteration % iterations_per_epoch) + 1) * batch_size)
             batch_xs, batch_ys = X_train[start_index:end_index], y_train[start_index: end_index]
             _, c = sess.run([optimizer, cost],
-                            feed_dict={input_layer: batch_xs, output_layer: batch_ys})
+                            feed_dict={input_layer: batch_xs, output_layer: batch_ys, training: True})
             avg_cost += c / display_iterations
-            val_acc = accuracy.eval({input_layer: X_validation, output_layer: y_validation})
+            val_acc = accuracy.eval({input_layer: X_validation, output_layer: y_validation, training: False})
             avg_val_acc += val_acc / display_iterations
             if (iteration + 1) % display_iterations == 0:
                 tf.logging.info("Iteration: %s\tcost=%s\tvalidation accuracy=%s", (iteration + 1), avg_cost,
@@ -98,13 +98,14 @@ def main(args):
             if no_improvement_counter == early_stop_counter:
                 tf.logging.info(
                     "Iteration %s Early stop, There was no accuracy improvement in the last 3 batches" % (
-                    iteration + 1))
+                        iteration + 1))
                 break
 
         tf.logging.info("Validation Accuracy: %s",
-                        accuracy.eval({input_layer: X_validation, output_layer: y_validation}))
+                        accuracy.eval({input_layer: X_validation, output_layer: y_validation, training: False}))
         tf.logging.info("Accuracy: %s",
-                        accuracy.eval({input_layer: mnist.test.images, output_layer: mnist.test.labels}))
+                        accuracy.eval(
+                            {input_layer: mnist.test.images, output_layer: mnist.test.labels, training: False}))
 
 
 if __name__ == "__main__":
