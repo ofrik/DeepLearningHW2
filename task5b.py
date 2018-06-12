@@ -1,6 +1,6 @@
 """
 Deep Learning Assignment II
-Task 4
+Task 5b
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data

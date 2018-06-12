@@ -7,7 +7,7 @@ Created on Mon Jun 11 09:37:48 2018
 
 """
 Deep Learning Assignment II
-Task 2
+Task 3
 """
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
