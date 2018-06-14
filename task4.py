@@ -50,7 +50,9 @@ def main(args):
 
     dropout = tf.layers.dropout(inputs=dense1, rate=0.4, training=training)
 
-    logits = tf.layers.dense(inputs=dropout, units=10, activation=tf.nn.relu)
+    dense2 = tf.layers.dense(inputs=dropout, units=1024, activation=tf.nn.relu)
+
+    logits = tf.layers.dense(inputs=dense2, units=10, activation=tf.nn.relu)
 
     with tf.name_scope('Model'):
         predictions = tf.nn.softmax(logits)
