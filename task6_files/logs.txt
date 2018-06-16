@@ -1,0 +1,21 @@
+INFO:tensorflow:Iteration: 250	cost=2.290285676
+INFO:tensorflow:Iteration: 500	cost=2.255242589
+INFO:tensorflow:Iteration: 750	cost=2.20566259289
+INFO:tensorflow:Iteration: 1000	cost=2.12438155651
+INFO:tensorflow:Iteration: 1250	cost=1.96649915981
+INFO:tensorflow:Iteration: 1500	cost=1.65437361145
+INFO:tensorflow:Iteration: 1750	cost=1.22962328911
+INFO:tensorflow:Iteration: 2000	cost=0.906601694584
+INFO:tensorflow:Iteration: 2250	cost=0.736323748231
+INFO:tensorflow:Iteration: 2500	cost=0.633602329493
+INFO:tensorflow:Iteration: 2750	cost=0.568672215462
+INFO:tensorflow:Iteration: 3000	cost=0.509129141212
+INFO:tensorflow:Iteration: 3250	cost=0.481090609074
+INFO:tensorflow:Iteration: 3500	cost=0.442071137309
+INFO:tensorflow:Iteration: 3750	cost=0.408123489738
+INFO:tensorflow:Iteration: 4000	cost=0.404908545971
+INFO:tensorflow:Iteration: 4250	cost=0.375486623347
+INFO:tensorflow:Iteration: 4500	cost=0.363970286489
+INFO:tensorflow:Iteration: 4750	cost=0.346051790774
+INFO:tensorflow:Iteration: 5000	cost=0.330965753138
+INFO:tensorflow:Accuracy: 0.921
