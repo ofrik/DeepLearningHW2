@@ -43,7 +43,7 @@ def main(args):
 
     dense2 = tf.layers.dense(inputs=dense1, units=1024, activation=tf.nn.relu)
 
-    logits = tf.layers.dense(inputs=dense2, units=10, activation=tf.nn.relu)
+    logits = tf.layers.dense(inputs=dense2, units=10)
 
     with tf.name_scope('Model'):
         predictions = tf.nn.softmax(logits)

@@ -22,6 +22,7 @@ def main(args):
     training_iterations = 5000
     batch_size = 100
     display_iterations = 250
+    drop_out_rate = 0.4
 
     input_layer = tf.placeholder(tf.float32, [None, 28, 28, 1])
     # input_layer = tf.reshape(raw_data, [-1, 28, 28, 1])
@@ -35,7 +36,7 @@ def main(args):
         padding="same",
         activation=tf.nn.relu)
 
-    norm1 = tf.layers.batch_normalization(conv1 , training=training)
+    norm1 = tf.layers.batch_normalization(conv1)
 
     pool1 = tf.layers.max_pooling2d(inputs=norm1, pool_size=[2, 2], strides=2)
 
@@ -46,16 +47,19 @@ def main(args):
         padding="same",
         activation=tf.nn.relu)
 
-    norm2 = tf.layers.batch_normalization(conv2 , training=training)
+    norm2 = tf.layers.batch_normalization(conv2)
 
     pool2 = tf.layers.max_pooling2d(inputs=norm2, pool_size=[2, 2], strides=2)
 
     pool2_flat = tf.reshape(pool2, [-1, 7 * 7 * 64])
 
     dense1 = tf.layers.dense(inputs=pool2_flat, units=1024, activation=tf.nn.relu)
-    dropout = tf.layers.dropout(inputs=dense1, rate=0.4, training=training)
+    
+    dropout = tf.layers.dropout(inputs=dense1, rate=drop_out_rate, training=training)
+    
     dense2 = tf.layers.dense(inputs=dropout, units=1024, activation=tf.nn.relu)
-    logits = tf.layers.dense(inputs=dense2, units=10, activation=tf.nn.relu)
+    
+    logits = tf.layers.dense(inputs=dense2, units=10)
 
     with tf.name_scope('Model'):
         predictions = tf.nn.softmax(logits)
