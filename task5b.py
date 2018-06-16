@@ -41,7 +41,7 @@ def main(args):
         padding="same",
         activation=tf.nn.relu)
 
-    norm2 = tf.layers.batch_normalization(conv2 , training)
+    norm2 = tf.layers.batch_normalization(conv2)
 
     pool2 = tf.layers.max_pooling2d(inputs=norm2, pool_size=[2, 2], strides=2)
 
