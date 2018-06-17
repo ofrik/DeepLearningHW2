@@ -16,7 +16,7 @@ def main(args):
     lr_decay_iter = 400
     training_iterations = 5000
     batch_size = 100
-    display_iterations = 1
+    display_iterations = 250
     drop_out_rate = 0.4
     early_stop_counter = 3
 

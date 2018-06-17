@@ -15,7 +15,7 @@ def main(args):
     learning_rate = 0.001
     training_iterations = 5000
     batch_size = 100
-    display_iterations = 1
+    display_iterations = 250
     drop_out_rate = 0.4
     early_stop_counter = 3
 
