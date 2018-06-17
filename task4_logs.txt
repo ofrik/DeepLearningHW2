@@ -1,0 +1,39 @@
+INFO:tensorflow:Iteration: 1	cost=2.309040308	validation accuracy=0.0806666687131
+INFO:tensorflow:Iteration: 2	cost=2.30016756058	validation accuracy=0.0815000012517
+INFO:tensorflow:Iteration: 3	cost=2.30128550529	validation accuracy=0.0825833305717
+INFO:tensorflow:Iteration: 4	cost=2.3118057251	validation accuracy=0.0828333348036
+INFO:tensorflow:Iteration: 5	cost=2.30519580841	validation accuracy=0.081833332777
+INFO:tensorflow:Iteration: 6	cost=2.30465173721	validation accuracy=0.0822499990463
+INFO:tensorflow:Iteration: 7	cost=2.30117034912	validation accuracy=0.081749998033
+INFO:tensorflow:Iteration: 8	cost=2.30070638657	validation accuracy=0.0815000012517
+INFO:tensorflow:Iteration: 9	cost=2.30489563942	validation accuracy=0.0821666643023
+INFO:tensorflow:Iteration: 10	cost=2.30673122406	validation accuracy=0.0824166685343
+INFO:tensorflow:Iteration: 11	cost=2.30804300308	validation accuracy=0.0825000032783
+INFO:tensorflow:Iteration: 12	cost=2.29491496086	validation accuracy=0.0825833305717
+INFO:tensorflow:Iteration: 13	cost=2.30432868004	validation accuracy=0.0827500000596
+INFO:tensorflow:Iteration: 14	cost=2.3069870472	validation accuracy=0.0830833315849
+INFO:tensorflow:Iteration: 15	cost=2.3031167984	validation accuracy=0.0832500010729
+INFO:tensorflow:Iteration: 16	cost=2.31284570694	validation accuracy=0.0828333348036
+INFO:tensorflow:Iteration: 17	cost=2.30652523041	validation accuracy=0.0832500010729
+INFO:tensorflow:Iteration: 18	cost=2.30706501007	validation accuracy=0.0828333348036
+INFO:tensorflow:Iteration: 19	cost=2.3076839447	validation accuracy=0.0834999978542
+INFO:tensorflow:Iteration: 20	cost=2.3102991581	validation accuracy=0.0828333348036
+INFO:tensorflow:Iteration: 21	cost=2.29484963417	validation accuracy=0.0828333348036
+INFO:tensorflow:Iteration: 22	cost=2.30332994461	validation accuracy=0.0830833315849
+INFO:tensorflow:Iteration: 23	cost=2.29865336418	validation accuracy=0.0831666663289
+INFO:tensorflow:Iteration: 24	cost=2.31026124954	validation accuracy=0.0831666663289
+INFO:tensorflow:Iteration: 25	cost=2.30207967758	validation accuracy=0.0834999978542
+INFO:tensorflow:Iteration: 26	cost=2.29538059235	validation accuracy=0.0833333358169
+INFO:tensorflow:Iteration: 27	cost=2.30421233177	validation accuracy=0.0836666673422
+INFO:tensorflow:Iteration: 28	cost=2.29645872116	validation accuracy=0.0839166641235
+INFO:tensorflow:Iteration: 29	cost=2.30166625977	validation accuracy=0.0838333368301
+INFO:tensorflow:Iteration: 30	cost=2.29860496521	validation accuracy=0.0840833336115
+INFO:tensorflow:Iteration: 31	cost=2.2984316349	validation accuracy=0.0845833346248
+INFO:tensorflow:Iteration: 32	cost=2.30398154259	validation accuracy=0.0847499966621
+INFO:tensorflow:Iteration: 33	cost=2.30586791039	validation accuracy=0.085166670382
+INFO:tensorflow:Iteration: 34	cost=2.2978720665	validation accuracy=0.085166670382
+INFO:tensorflow:Iteration: 35	cost=2.3023724556	validation accuracy=0.0850000008941
+INFO:tensorflow:Iteration: 36	cost=2.31205940247	validation accuracy=0.0849166661501
+INFO:tensorflow:Iteration 36 Early stop, There was no accuracy improvement in the last 3 batches
+INFO:tensorflow:Validation Accuracy: 0.0849167
+INFO:tensorflow:Accuracy: 0.0833
